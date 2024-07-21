@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vulnerability Scanner</title>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        .hero {
+            background: url('https://via.placeholder.com/1500x500') no-repeat center center;
+            background-size: cover;
+            color: white;
+            padding: 100px 0;
+        }
+        .hero h1 {
+            font-size: 4rem;
+        }
+        .form-section {
+            margin-top: 50px;
+        }
+        .btn-custom {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+
+    <header class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">VulnScan</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/sethost">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero text-center" style="background-image: url('https://cdn.mos.cms.futurecdn.net/jEcgjwrxDgkjXfaDBqsrBL.jpg');">
+        <div class="container">
+            <h1 class="text-center">Reconnaissance Results</h1>
+        </div>
+    </section>
+
+    <!-- Reconnaissance Results Section -->
+    {% if reverse_dns and dns_lookup and host_search and ip and target %}
+    <section class="container mt-5">
+        <h1>{{ target }}</h1>
+        
+        <h2>{{ ip }}</h2>
+        <h3>Whois Lookup</h3>
+        <pre>{{ whois_lookup }}</pre>
+        <h5>Reverse DNS Lookup</h5>
+        <pre>{{ reverse_dns }}</pre>
+        <h5>DNS Lookup</h5>
+        <pre>{{ dns_lookup }}</pre>
+        <h5>Host Search</h5>
+        <pre>{{ host_search }}</pre>
+        <h5>zone transfer</h5>
+        <pre>{{ zonetransfer }}</pre>
+        <h5>reverse lookup</h5>
+        <pre>{{ reverse_lookup }}</pre>
+
+        <form action="/portscan" method="post" class="mt-4">
+            <input type="hidden" name="target" value="{{ target }}">
+            <div class="text-center">
+                <button type="submit" class="btn btn-secondary">Perform Port Scanning</button>
+            </div>
+        </form>
+    </section>
+    {% endif %}
+
+
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
