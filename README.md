@@ -6,7 +6,7 @@ Simple Vulnerability Scanner
   <img src="https://github.com/prashik287/VullnScanner/blob/main/screenshots/home.PNG" style="width: 49%;">
   <img src="https://github.com/prashik287/VullnScanner/blob/main/screenshots/portscan.PNG" style="width: 49%;">
 </div>
-  <img src="https://github.com/prashik287/VullnScanner/blob/main/screenshots/recon.png" style="width: 100%">
+  <img src="https://github.com/prashik287/VullnScanner/blob/main/screenshots/recon.png" style="width: 100%; height:50%">
 
 
 <!-- ![alt text](https://github.com/prashik287/VullnScanner/blob/main/screenshots/home.PNG)
