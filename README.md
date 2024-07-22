@@ -1,3 +1,3 @@
 # VullnScanner
 Simple Vulnerability Scanner
-![alt text](https://github.com/prashik287/vulnscanner/blob/main/Screenshot%20from%202024-07-16%2011-45-06.png)
+![alt text](https://github.com/prashik287/VullnScanner/blob/main/screenshots/home.PNG)
