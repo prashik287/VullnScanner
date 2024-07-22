@@ -34,5 +34,8 @@ The final phase involves analyzing the services discovered during the port scan 
 <h2>Installation</h2>
 
 
-<pre>git clone https://github.com/prashik287/VullnScanner</pre>
+<pre>git clone https://github.com/prashik287/VullnScanner
+      cd VullnScanner
+      pip install -r requirements.txt
+</pre>
 
