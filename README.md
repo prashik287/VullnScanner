@@ -30,3 +30,9 @@ After reconnaissance, the scanner performs a thorough port scan on the target to
 The final phase involves analyzing the services discovered during the port scan for known vulnerabilities. The scanner cross-references identified services against a database of common vulnerabilities and exposures (CVEs). It then provides a detailed report to the user, highlighting any vulnerable services and their specific vulnerabilities, along with recommended remediation steps.</p>
 </ul>
 
+
+<h2>Installation</h2>
+
+
+<pre>git clone https://github.com/prashik287/VullnScanner</pre>
+
