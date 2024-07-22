@@ -1,6 +1,5 @@
 import socket
-import platform
-from flask import Flask, render_template,request,url_for,redirect
+from flask import Flask, render_template, request, url_for, redirect
 import os
 # Importing modules and classes from your application
 from modules.portscan import PortScanner
@@ -49,7 +48,7 @@ def sethost():
         return render_template('gethost.html', image_url=image_url)
 
 # Route for handling port scanning
-@app.route('/ports', methods=['GET','POST'])
+@app.route('/ports', methods=['GET', 'POST'])
 def ports():
     target = request.args.get('target')
     if request.method == "POST":
@@ -61,10 +60,19 @@ def ports():
     if open_ports1 == "No open Ports found":
         return render_template('port.html', result=open_ports1, vul="" )
     else:
-        banner = open_ports1.split("  ")[1]
+        # Extracting all banners for vulnerability checking
+        result_lines = open_ports1.split('\n')
+        banners = [line.split('Banner: ')[-1] for line in result_lines if 'Banner: ' in line]
+        
+        # Create a CVE scanner instance
         cv = cvemitre()
-        vuln = cv.getvuln(banner)
-        return render_template('port.html', result=open_ports1, vul=vuln )
+        
+        # Retrieve vulnerabilities for all banners
+        vulnerabilities = []
+        for banner in banners:
+            vulnerabilities.append(cv.getvuln(banner))
+        
+        return render_template('port.html', result=open_ports1, vul=vulnerabilities)
 
 # Route for contact page
 @app.route('/contact', methods=["GET"])
@@ -80,7 +88,7 @@ def submit():
         email = userdata["email"]
         Subject = userdata["Subject"]
         Message = userdata["Message"]
-        new_data = {"name": name, "email": email,"Subject":Subject,"Message":Message}
+        new_data = {"name": name, "email": email, "Subject": Subject, "Message": Message}
         firebase.post("/users", new_data)
         return "Thank you!"
     else:
@@ -112,8 +120,5 @@ def recon():
 
     return render_template('recon.html', target=target, reverse_dns=reverse_dns, dns_lookup=dns_lookup, host_search=host_search, zonetransfer=zonetransfer, reverse_lookup=reverse_lookup, ip=ip, whois_lookup=whois_lookup)
 
-
-
 if __name__ == '__main__':
     app.run(debug=True)
-

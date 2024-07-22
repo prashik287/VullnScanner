@@ -31,10 +31,10 @@ class PortScanner:
             result = sock.connect_ex((ip, port))
             if result == 0:
                 banner = self.banner_grab(ip, port)
-                open_ports.append((port, banner))
+                open_ports[ip].append((port, banner))
 
     def scan_ports(self, target, start_port=1, end_port=30):
-        open_ports = []
+        open_ports = {}
         threads = []
         
         # Parse the target to get network address and subnet mask
@@ -46,6 +46,7 @@ class PortScanner:
         # Iterate over all hosts in the network except network and broadcast addresses
         for ip in network.hosts():
             ip_str = str(ip)
+            open_ports[ip_str] = []
             for port in range(start_port, end_port + 1):
                 t = threading.Thread(target=self.scan_port, args=(ip_str, port, open_ports))
                 threads.append(t)
@@ -64,10 +65,17 @@ class PortScanner:
 
         open_ports = self.scan_ports(target)
 
-        if open_ports:
-            result = "Open Ports:\n"
-            for port, banner in open_ports:
-                result += f"{port}    {banner}\n"
-            return result
+        result = ""
+        for ip, ports in open_ports.items():
+            if ports:
+                result += f"IP: {ip}\n"
+                for port, banner in ports:
+                    result += f"  Port: {port}, Banner: {banner}\n"
+                result += "\n"
+        
+        if result:
+            return result.strip()
         else:
             return "No open Ports found"
+
+
