@@ -2,8 +2,12 @@
 Simple Vulnerability Scanner
 <hr>
 
-<img src="https://github.com/prashik287/VullnScanner/blob/main/screenshots/home.PNG" width=50%>
-<img src="https://github.com/prashik287/VullnScanner/blob/main/screenshots/portscan.PNG" width=50%>
+<div style="display: flex; justify-content: space-between;">
+  <img src="https://github.com/prashik287/VullnScanner/blob/main/screenshots/home.PNG" style="width: 49%;">
+  <img src="https://github.com/prashik287/VullnScanner/blob/main/screenshots/portscan.PNG" style="width: 49%;">
+</div>
+
+
 <!-- ![alt text](https://github.com/prashik287/VullnScanner/blob/main/screenshots/home.PNG)
 ![alt text](https://github.com/prashik287/VullnScanner/blob/main/screenshots/portscan.PNG)
 ![alt text](https://github.com/prashik287/VullnScanner/blob/main/screenshots/recon.png) -->
