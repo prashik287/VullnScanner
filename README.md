@@ -47,3 +47,6 @@ pip install -r requirements.txt
   python3 main.py
 </pre>
 
+
+<p>Now You can access the tool from browser just go to following url:</p>
+<pre>http://127.0.0.1:5000/</pre>
