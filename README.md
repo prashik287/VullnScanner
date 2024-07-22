@@ -1,4 +1,4 @@
-<h1> VullnScanner </h1>
+<strong><h1> VullnScanner </h1></strong>
 Simple Vulnerability Scanner
 <hr>
 
