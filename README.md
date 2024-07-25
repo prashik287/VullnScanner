@@ -1,3 +1,10 @@
+<h1>Codetech : Task 1 </h1>
+
+<p>Name : Prashik Jadhav</p> 
+<p>Company : CODTECH IT SOLUTIONS</p> 
+<p>ID   : CT4CSEH3002 </p> 
+<p>Duration : 25  June 2024 to  2024 July 2023</p> 
+<p>Mentor : Neela Santosh Kumar</p>
 <strong><h1> VullnScanner </h1></strong>
 Simple Vulnerability Scanner
 <hr>
