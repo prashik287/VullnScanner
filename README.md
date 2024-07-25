@@ -1,4 +1,4 @@
-<h1>Codetech : Task 1 </h1>
+<h1>Codetech : Task 2</h1>
 
 <p>Name : Prashik Jadhav</p> 
 <p>Company : CODTECH IT SOLUTIONS</p> 
